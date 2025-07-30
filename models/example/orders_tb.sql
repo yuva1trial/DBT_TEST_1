@@ -11,7 +11,7 @@
 
 with source_data as (
 
-select * from ECOMMERCE_DB.TEST.ORDERS
+select * from {{ source('ecommerce_db', 'ORDERS') }}
 
 )
 

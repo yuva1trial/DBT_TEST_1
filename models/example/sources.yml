@@ -1,0 +1,45 @@
+version: 2
+
+sources:
+  - name: ecommerce_db
+    database: ECOMMERCE_DB
+    schema: TEST
+    tables:
+      - name: ORDERS
+        description: "Source orders table in TEST schema"
+        columns:
+          - name: ORDER_ID
+            description: "Unique order ID"
+            tests:
+              - not_null:
+                  config:
+                    severity: warn
+                    store_failures: true
+              - unique:
+                  config:
+                    severity: warn
+                    store_failures: true
+
+          - name: USER_ID
+            description: "ID of the user placing the order"
+            tests:
+              - not_null:
+                  config:
+                    severity: warn
+                    store_failures: true
+
+          - name: ORDER_DATE
+            description: "Date and time when the order was placed"
+            tests:
+              - not_null:
+                  config:
+                    severity: warn
+                    store_failures: true
+
+          - name: STATUS
+            description: "Current status of the order"
+            tests:
+              - not_null:
+                  config:
+                    severity: warn
+                    store_failures: true
