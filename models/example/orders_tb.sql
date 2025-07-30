@@ -12,6 +12,8 @@
 with source_data as (
 
 select * from {{ source('ecommerce_db', 'ORDERS') }}
+-- WHERE ORDER_DATE >= CURRENT_DATE -- or use a variable/date window
+--   AND (STATUS IS NULL OR ORDER_ID IS NULL)
 
 )
 
