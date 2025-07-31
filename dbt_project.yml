@@ -1,9 +1,18 @@
-name: DBT_POC
+# dbt_project.yml
+
+name: 'DBT_POC'
 version: '1.0.0'
+config-version: 2
 profile: 'default'
 
 models:
-  DBT_POC:
+  DBT_PSC:
     +schema: DBT_YS
+    +materialized: view
+
 tests:
-  +schema: DBT_YS
+  +store_failures: true # Ensure this is set to true for tests to store failures
+
+on-run-end:
+  - "{{ log_audit_failure('example_model', 'test_example', 'ID column should not be null') }}"
+
