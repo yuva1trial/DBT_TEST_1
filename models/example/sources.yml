@@ -15,6 +15,7 @@ sources:
                   config:
                     severity: warn
                     store_failures: true
+                    failures_table: DBT_YS.all_test_failures
               - unique:
                   config:
                     severity: warn
