@@ -14,5 +14,6 @@ tests:
   +store_failures: true # Ensure this is set to true for tests to store failures
 
 on-run-end:
-  - "{{ log_audit_failure('orders_tb', 'test_example', 'ID column should not be null') }}"
+  - "{{ log_audit_failure_from_results(results) }}"
+
 
